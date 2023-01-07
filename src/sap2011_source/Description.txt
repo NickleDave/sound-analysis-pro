@@ -1,0 +1,107 @@
+08.11.2010
+
+The following COM methods are realized:
+p.invoke
+	SoundList1Add = void SoundList1Add(handle, string)
+	SoundList1Clear = void SoundList1Clear(handle)
+	SoundList2Add = void SoundList2Add(handle, string)
+	SoundList2Clear = void SoundList2Clear(handle)
+	DoBatch = void DoBatch(handle)
+	SetBatchDir = void SetBatchDir(handle, string)
+	Init = void Init(handle, int32)
+In it's current state this is a demo program while the results are not returned 
+to Matlab (not yet!). 
+Example of usage:
+p = actxserver ('SAP2010b.SAPObject'); %from 21.01.2011: p = actxserver ('SAP2011.SAPObject');
+p.Init(1)
+p.SetBatchDir('G:\');
+p.SoundList1Add('tutorsong.wav');
+p.SoundList2Add('Georg_tutorsong_44100.wav');
+p.DoBatch
+
+15.11.2010
+
+Now the program is coimpiled with all licensed libraries and the compiled version
+should run at any PC. However, the settings table is not read properly yet.
+The error message is just supressed.
+
+An additional command to delete records in the table is added:
+p.invoke
+	SoundList1Add = void SoundList1Add(handle, string)
+	SoundList1Clear = void SoundList1Clear(handle)
+	SoundList2Add = void SoundList2Add(handle, string)
+	SoundList2Clear = void SoundList2Clear(handle)
+	DoBatch = void DoBatch(handle)
+	SetBatchDir = void SetBatchDir(handle, string)
+	Init = void Init(handle, int32)
+	DeleteRecords = void DeleteRecords(handle)
+The Matlab code to compute similarity between two files looks like:
+p = actxserver ('SAP2010b.SAPObject');
+p.DeleteRecords;
+p.Init(1);
+p.SetBatchDir('C:\');
+p.SoundList1Add('tutorsong.wav');
+p.SoundList2Add('Georg_tutorsong_44100.wav');
+p.DoBatch
+
+%Here one can generate an event when computation is ready and send it
+%to Matlab!
+
+%get results from database
+Table = 'similarity';
+RawInc = 10000; %number of raws imported at once
+conn = database('MySQL - SAP', 'alexei', '');
+setdbprefs('DataReturnFormat','structure');
+clear A;
+A = fetch(conn,['SELECT * FROM ' Table],RawInc);
+tic
+pause on
+while isempty(A)
+  pause(0.1);
+  A = fetch(conn,['SELECT * FROM ' Table],RawInc);
+end
+pause off
+toc
+disp(['Score, Similarity, Accuracy: ' int2str(A.score) ' ' int2str(A.similarity) ' ' num2str(A.accuracy)]);
+p.delete
+
+16.11.2010
+
+One additional interface command SetBatchMode(handle, int32) is added.
+It allows to choose MxN modes.
+A bug is eliminated that sometimes leaded to corrupted transmission of the filenames.
+The project is recompiled for the parallel processing.
+To produce a new "worker" the uuid and the reference name inside the code should be changed.
+In particular, one should do the following steps:
+
+1. Open COM_interface.h. Change the parameter DECLARE_PROGID. For instance make it equal to "SAP2010b3.SAPObject"
+   (or "SAP2010b4.SAPObject", etc.).
+2. Open SAP2010b.ridl in the text mode.Change the last digit of four uuid numbers (in four places of this file).
+   Any numbers different from the numbers in other program insatances can be chosen, but for simplicity it is
+   a nice idea to have the last digits identical in the program (the preceding digits are different - thus, 
+   identifiers are unique).
+3. In SAP2010b.ridl change its display mode to Design mode (using selectors below the window). 
+   Then press "Refresh implementation" (icon with two arrows at the sheet of paper). Press icon 
+   "Save as Type Library File" to save type library (will be used in Windows registry).
+4. A good idea is to press "Save All".
+5. Build the whole project.
+6. Copy the generated SAP2010b.exe to its permanent location and rename it like SAP210b3.exe, for instance.
+7. Rregister it running with the parameter: SAP2010b3.exe /regserver.
+8. Test functionality with matlab.
+Note: settings file reading is not corrected yet!
+
+29.11.2010
+
+This version also can read *.LVD files (in addition to *.WAV).
+This is a special format that LabView Recorder generates.
+The description of format is in LVD_DataFormat.txt.
+One can mix LVD and WAV, but the sampling frequency should be identical in all files for correct similarity
+computation. The fdunctionality has been tested with 12 workers. All this workers + Matlab + Windows XP 64-bit
+fit in 2GB of RAM. Thus, 64-bit OS is not really necessary.
+
+21.01.2011
+
+COM code is merged with SAP2011 code. The ActiveX server is renamed.
+Now in Matlab it should be called as:
+p = actxserver ('SAP2011.SAPObject');
+

@@ -1,0 +1,1125 @@
+object animals_form: Tanimals_form
+  Left = 46
+  Top = 80
+  ActiveControl = OKBtn
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'Animals'
+  ClientHeight = 629
+  ClientWidth = 1068
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object datapages: TPageControl
+    Left = 0
+    Top = 0
+    Width = 1065
+    Height = 550
+    ActivePage = select_animal
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object select_animal: TTabSheet
+      Caption = 'Select Animal'
+      DesignSize = (
+        1057
+        515)
+      object messages: TLabel
+        Left = 518
+        Top = 51
+        Width = 532
+        Height = 19
+        Caption = 
+          'Navigate with arrow && up/down keys. Click field names to sort. ' +
+          'Use search after sorting'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 6
+        Top = 11
+        Width = 712
+        Height = 21
+        Caption = 
+          'Click on the bird you want to select or use fillter && search fi' +
+          'elds to find it. Click Ok when done.'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object birds_navigator: TDBNavigator
+        Left = 304
+        Top = 48
+        Width = 205
+        Height = 33
+        DataSource = DataSource1
+        VisibleButtons = [nbFirst, nbLast, nbDelete, nbCancel, nbRefresh]
+        TabOrder = 0
+      end
+      object animals_grid: TCRDBGrid
+        Left = 14
+        Top = 87
+        Width = 1040
+        Height = 419
+        OptionsEx = [dgeEnableSort, dgeFilterBar, dgeLocalFilter, dgeRecordCount, dgeSearchBar, dgeSummary]
+        Anchors = []
+        Color = clWhite
+        DataSource = DataSource1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        ParentFont = False
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clMaroon
+        TitleFont.Height = -13
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = [fsBold]
+        OnCellClick = animals_gridCellClick
+        OnDrawColumnCell = animals_gridDrawColumnCell
+        OnTitleClick = animals_gridTitleClick
+        Columns = <
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'bird_name'
+            Width = 80
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'sex'
+            Width = 35
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'hatched'
+            Title.Alignment = taCenter
+            Width = 75
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'weight'
+            Title.Alignment = taCenter
+            Width = 52
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'location'
+            Title.Alignment = taCenter
+            Width = 62
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'training'
+            Title.Alignment = taCenter
+            Width = 88
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'model'
+            Title.Alignment = taCenter
+            Width = 70
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'quota'
+            Title.Alignment = taCenter
+            Width = 50
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'audio'
+            Title.Alignment = taCenter
+            Width = 70
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'attributes'
+            Title.Alignment = taCenter
+            Width = 89
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'photoperiod'
+            Title.Alignment = taCenter
+            Width = 110
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'details'
+            Width = 565
+            Visible = True
+          end>
+      end
+      object filter: TBitBtn
+        Left = 72
+        Top = 48
+        Width = 113
+        Height = 33
+        Caption = 'Apply filter'
+        DoubleBuffered = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -15
+        Font.Name = 'Comic Sans MS'
+        Font.Style = [fsBold]
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFF000F00FF
+          FFFFFFFFFFFFFFFFFFFFFFF0000FFF0FFFFFFFFFFFFFFFFFFFFFFF00000FFF00
+          FFFFFFFFFFFFFFFFFFFFF000000FFFF00FFFFFFFFFFFFFFFFFFF000000000000
+          00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        NumGlyphs = 2
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 2
+        OnClick = filterClick
+      end
+      object clear_filters: TBitBtn
+        Left = 184
+        Top = 48
+        Width = 121
+        Height = 33
+        Caption = 'Clear filters'
+        DoubleBuffered = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -15
+        Font.Name = 'Comic Sans MS'
+        Font.Style = [fsBold]
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFF00FF00FF
+          FFFFFFFFFFFFFFFFFFFFFFF0FFFFFF0FFFFFFFFFFFFFFFFFFFFFFF0FFFFFFFF0
+          FFFFFFFFFFFFFFFFFFFFF0FFFFFFFFFF0FFFFFFFFFFFFFFFFFFF000000000000
+          00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        NumGlyphs = 2
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 3
+        OnClick = clear_filtersClick
+      end
+      object BitBtn32: TBitBtn
+        Left = 8
+        Top = 48
+        Width = 65
+        Height = 33
+        Caption = 'Help'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -15
+        Font.Name = 'Comic Sans MS'
+        Font.Style = [fsBold]
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3333333333FFFFF3333333333F797F3333333333F737373FF333333BFB999BFB
+          33333337737773773F3333BFBF797FBFB33333733337333373F33BFBFBFBFBFB
+          FB3337F33333F33337F33FBFBFB9BFBFBF3337333337F333373FFBFBFBF97BFB
+          FBF37F333337FF33337FBFBFBFB99FBFBFB37F3333377FF3337FFBFBFBFB99FB
+          FBF37F33333377FF337FBFBF77BF799FBFB37F333FF3377F337FFBFB99FB799B
+          FBF373F377F3377F33733FBF997F799FBF3337F377FFF77337F33BFBF99999FB
+          FB33373F37777733373333BFBF999FBFB3333373FF77733F7333333BFBFBFBFB
+          3333333773FFFF77333333333FBFBF3333333333377777333333}
+        NumGlyphs = 2
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 4
+      end
+    end
+    object new_animal: TTabSheet
+      Caption = 'New Animal'
+      ImageIndex = 1
+      object Panel5: TPanel
+        Left = 488
+        Top = 258
+        Width = 465
+        Height = 79
+        BevelOuter = bvLowered
+        TabOrder = 0
+        object Label11: TLabel
+          Left = 118
+          Top = 35
+          Width = 35
+          Height = 24
+          Caption = 'Age'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object procedure1_age: TNumLab
+          Left = 157
+          Top = 40
+          Width = 60
+          Height = 20
+          Alignment = taCenter
+          ColorLabBakG = clSilver
+          ColorLabText = clBlack
+          ColorOutBakG = clSilver
+          ColorOutText = clBlack
+          ColorScheme = csBWG
+          Comma = False
+          DisplayType = dtFixP
+          DTFormat = 'mmm-dd, yyyy'
+          Empty = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ForcePlusSign = False
+          FrameStyle = fsLowered
+          LabelWidth = 58
+          LeftSpace = 0
+          LeftTextAlignment = taRightJustify
+          OverflowIndicator = '*********'
+          ParentFont = False
+          Precision = 0
+          RightTextAlignment = taLeftJustify
+          StateText = 'undefined'
+          Transparent = False
+        end
+        object Label12: TLabel
+          Left = 65
+          Top = 3
+          Width = 104
+          Height = 24
+          Caption = 'Procedure 1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object procedure1: TEdit
+          Left = 12
+          Top = 35
+          Width = 93
+          Height = 28
+          Color = clWhite
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+          Text = 'isolation'
+        end
+        object procedure1_schedule: TDateTimePicker
+          Left = 224
+          Top = 8
+          Width = 129
+          Height = 28
+          Date = 39098.853867187500000000
+          Time = 39098.853867187500000000
+          TabOrder = 1
+        end
+        object procedure1_time: TDateTimePicker
+          Left = 224
+          Top = 40
+          Width = 129
+          Height = 28
+          Date = 39098.000000000000000000
+          Time = 39098.000000000000000000
+          Kind = dtkTime
+          TabOrder = 2
+        end
+        object set_time3: TBitBtn
+          Left = 359
+          Top = 24
+          Width = 80
+          Height = 33
+          Caption = 'Now'
+          DoubleBuffered = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clNavy
+          Font.Height = -15
+          Font.Name = 'Comic Sans MS'
+          Font.Style = [fsBold]
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            3333333333FFFFF3333333333000003333333333F77777FFF333333009999900
+            3333333777777777FF33330998FFF899033333777333F3777FF33099FFFCFFF9
+            903337773337333777F3309FFFFFFFCF9033377333F3337377FF098FF0FFFFFF
+            890377F3373F3333377F09FFFF0FFFFFF90377F3F373FFFFF77F09FCFFF90000
+            F90377F733377777377F09FFFFFFFFFFF90377F333333333377F098FFFFFFFFF
+            890377FF3F33333F3773309FCFFFFFCF9033377F7333F37377F33099FFFCFFF9
+            90333777FF37F3377733330998FCF899033333777FF7FF777333333009999900
+            3333333777777777333333333000003333333333377777333333}
+          NumGlyphs = 2
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 3
+        end
+      end
+      object Panel4: TPanel
+        Left = 16
+        Top = 370
+        Width = 449
+        Height = 79
+        BevelOuter = bvLowered
+        TabOrder = 1
+        object Label9: TLabel
+          Left = 7
+          Top = 43
+          Width = 106
+          Height = 24
+          Caption = 'Training age'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label10: TLabel
+          Left = 9
+          Top = 3
+          Width = 69
+          Height = 24
+          Caption = 'Training'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object trained: TDateTimePicker
+          Left = 200
+          Top = 8
+          Width = 129
+          Height = 28
+          Date = 39098.853867187500000000
+          Time = 39098.853867187500000000
+          TabOrder = 0
+        end
+        object train_time: TDateTimePicker
+          Left = 200
+          Top = 48
+          Width = 129
+          Height = 28
+          Date = 39098.000000000000000000
+          Time = 39098.000000000000000000
+          Kind = dtkTime
+          TabOrder = 1
+        end
+        object set_time2: TBitBtn
+          Left = 351
+          Top = 32
+          Width = 80
+          Height = 33
+          Caption = 'Now'
+          DoubleBuffered = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clNavy
+          Font.Height = -15
+          Font.Name = 'Comic Sans MS'
+          Font.Style = [fsBold]
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            3333333333FFFFF3333333333000003333333333F77777FFF333333009999900
+            3333333777777777FF33330998FFF899033333777333F3777FF33099FFFCFFF9
+            903337773337333777F3309FFFFFFFCF9033377333F3337377FF098FF0FFFFFF
+            890377F3373F3333377F09FFFF0FFFFFF90377F3F373FFFFF77F09FCFFF90000
+            F90377F733377777377F09FFFFFFFFFFF90377F333333333377F098FFFFFFFFF
+            890377FF3F33333F3773309FCFFFFFCF9033377F7333F37377F33099FFFCFFF9
+            90333777FF37F3377733330998FCF899033333777FF7FF777333333009999900
+            3333333777777777333333333000003333333333377777333333}
+          NumGlyphs = 2
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 2
+        end
+        object training: TEdit
+          Left = 120
+          Top = 43
+          Width = 65
+          Height = 28
+          Color = clWhite
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 3
+          OnChange = trainingChange
+        end
+      end
+      object Panel3: TPanel
+        Left = 16
+        Top = 258
+        Width = 457
+        Height = 79
+        BevelOuter = bvLowered
+        TabOrder = 2
+        object Label8: TLabel
+          Left = 30
+          Top = 19
+          Width = 91
+          Height = 24
+          Caption = 'Age (days)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object age: TNumLab
+          Left = 31
+          Top = 48
+          Width = 60
+          Height = 20
+          Alignment = taCenter
+          ColorLabBakG = clSilver
+          ColorLabText = clBlack
+          ColorOutBakG = clSilver
+          ColorOutText = clBlack
+          ColorScheme = csBWG
+          Comma = False
+          DisplayType = dtFixP
+          DTFormat = 'mmm-dd, yyyy'
+          Empty = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ForcePlusSign = False
+          FrameStyle = fsLowered
+          LabelWidth = 58
+          LeftSpace = 0
+          LeftTextAlignment = taRightJustify
+          OverflowIndicator = '*********'
+          ParentFont = False
+          Precision = 0
+          RightTextAlignment = taLeftJustify
+          StateText = 'undefined'
+          Transparent = False
+        end
+        object Label7: TLabel
+          Left = 142
+          Top = 43
+          Width = 49
+          Height = 24
+          Caption = 'Hatch'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object hatched: TDateTimePicker
+          Left = 208
+          Top = 40
+          Width = 137
+          Height = 28
+          Date = 39098.853867187500000000
+          Time = 39098.853867187500000000
+          Color = clWhite
+          TabOrder = 0
+          OnClick = hatchedClick
+          OnChange = hatchedClick
+        end
+        object set_time1: TBitBtn
+          Left = 351
+          Top = 40
+          Width = 80
+          Height = 33
+          Caption = 'Now'
+          DoubleBuffered = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clNavy
+          Font.Height = -15
+          Font.Name = 'Comic Sans MS'
+          Font.Style = [fsBold]
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            3333333333FFFFF3333333333000003333333333F77777FFF333333009999900
+            3333333777777777FF33330998FFF899033333777333F3777FF33099FFFCFFF9
+            903337773337333777F3309FFFFFFFCF9033377333F3337377FF098FF0FFFFFF
+            890377F3373F3333377F09FFFF0FFFFFF90377F3F373FFFFF77F09FCFFF90000
+            F90377F733377777377F09FFFFFFFFFFF90377F333333333377F098FFFFFFFFF
+            890377FF3F33333F3773309FCFFFFFCF9033377F7333F37377F33099FFFCFFF9
+            90333777FF37F3377733330998FCF899033333777FF7FF777333333009999900
+            3333333777777777333333333000003333333333377777333333}
+          NumGlyphs = 2
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 1
+          OnClick = set_time1Click
+        end
+      end
+      object bird_comments: TEdit
+        Left = 88
+        Top = 201
+        Width = 857
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 3
+      end
+      object StaticText39: TStaticText
+        Left = 8
+        Top = 136
+        Width = 37
+        Height = 28
+        Caption = 'Sex'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+      end
+      object gender: TComboBox
+        Left = 72
+        Top = 136
+        Width = 97
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 5
+        Text = 'male'
+        Items.Strings = (
+          'male'
+          'female')
+      end
+      object cage: TEdit
+        Left = 256
+        Top = 136
+        Width = 98
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 6
+      end
+      object StaticText33: TStaticText
+        Left = 178
+        Top = 136
+        Width = 75
+        Height = 28
+        Caption = 'Location'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+      end
+      object StaticText38: TStaticText
+        Left = 372
+        Top = 136
+        Width = 55
+        Height = 28
+        Caption = 'Quota'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+      end
+      object song_quota: TEdit
+        Left = 440
+        Top = 136
+        Width = 90
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 9
+      end
+      object StaticText35: TStaticText
+        Left = 548
+        Top = 136
+        Width = 81
+        Height = 28
+        Caption = 'Attributes'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 10
+      end
+      object attributes: TEdit
+        Left = 640
+        Top = 136
+        Width = 153
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 11
+      end
+      object photoperiod: TEdit
+        Left = 816
+        Top = 136
+        Width = 129
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 12
+      end
+      object StaticText41: TStaticText
+        Left = 820
+        Top = 108
+        Width = 107
+        Height = 28
+        Caption = 'Photoperiod'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 13
+      end
+      object audio: TEdit
+        Left = 640
+        Top = 63
+        Width = 153
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 14
+      end
+      object StaticText34: TStaticText
+        Left = 548
+        Top = 63
+        Width = 54
+        Height = 28
+        Caption = 'Audio'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 15
+      end
+      object song: TEdit
+        Left = 432
+        Top = 63
+        Width = 98
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 16
+      end
+      object StaticText22: TStaticText
+        Left = 364
+        Top = 63
+        Width = 57
+        Height = 28
+        Caption = 'Model'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 17
+      end
+      object weight: TEdit
+        Left = 256
+        Top = 63
+        Width = 98
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 18
+      end
+      object StaticText23: TStaticText
+        Left = 194
+        Top = 63
+        Width = 63
+        Height = 28
+        Caption = 'Weight'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 19
+      end
+      object name: TEdit
+        Left = 72
+        Top = 63
+        Width = 98
+        Height = 28
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 20
+        OnChange = nameChange
+      end
+      object StaticText21: TStaticText
+        Left = 8
+        Top = 63
+        Width = 55
+        Height = 28
+        Caption = 'Name'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 21
+      end
+      object StaticText24: TStaticText
+        Left = 17
+        Top = 201
+        Width = 59
+        Height = 28
+        Caption = 'Details'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 22
+      end
+      object Panel6: TPanel
+        Left = 488
+        Top = 370
+        Width = 465
+        Height = 79
+        BevelOuter = bvLowered
+        TabOrder = 23
+        object Label13: TLabel
+          Left = 73
+          Top = 3
+          Width = 104
+          Height = 24
+          Caption = 'Procedure 2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label14: TLabel
+          Left = 118
+          Top = 35
+          Width = 35
+          Height = 24
+          Caption = 'Age'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object procedure2_age: TNumLab
+          Left = 157
+          Top = 40
+          Width = 60
+          Height = 20
+          Alignment = taCenter
+          ColorLabBakG = clSilver
+          ColorLabText = clBlack
+          ColorOutBakG = clSilver
+          ColorOutText = clBlack
+          ColorScheme = csBWG
+          Comma = False
+          DisplayType = dtFixP
+          DTFormat = 'mmm-dd, yyyy'
+          Empty = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ForcePlusSign = False
+          FrameStyle = fsLowered
+          LabelWidth = 58
+          LeftSpace = 0
+          LeftTextAlignment = taRightJustify
+          OverflowIndicator = '*********'
+          ParentFont = False
+          Precision = 0
+          RightTextAlignment = taLeftJustify
+          StateText = 'undefined'
+          Transparent = False
+        end
+        object procedure2: TEdit
+          Left = 12
+          Top = 35
+          Width = 85
+          Height = 28
+          Color = clWhite
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+        end
+        object procedure2_schedule: TDateTimePicker
+          Left = 224
+          Top = 8
+          Width = 129
+          Height = 28
+          Date = 39098.853867187500000000
+          Time = 39098.853867187500000000
+          TabOrder = 1
+        end
+        object procedure2_time: TDateTimePicker
+          Left = 224
+          Top = 40
+          Width = 129
+          Height = 28
+          Date = 39098.000000000000000000
+          Time = 39098.000000000000000000
+          Kind = dtkTime
+          TabOrder = 2
+        end
+        object set_time4: TBitBtn
+          Left = 367
+          Top = 24
+          Width = 80
+          Height = 33
+          Caption = 'Now'
+          DoubleBuffered = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clNavy
+          Font.Height = -15
+          Font.Name = 'Comic Sans MS'
+          Font.Style = [fsBold]
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            3333333333FFFFF3333333333000003333333333F77777FFF333333009999900
+            3333333777777777FF33330998FFF899033333777333F3777FF33099FFFCFFF9
+            903337773337333777F3309FFFFFFFCF9033377333F3337377FF098FF0FFFFFF
+            890377F3373F3333377F09FFFF0FFFFFF90377F3F373FFFFF77F09FCFFF90000
+            F90377F733377777377F09FFFFFFFFFFF90377F333333333377F098FFFFFFFFF
+            890377FF3F33333F3773309FCFFFFFCF9033377F7333F37377F33099FFFCFFF9
+            90333777FF37F3377733330998FCF899033333777FF7FF777333333009999900
+            3333333777777777333333333000003333333333377777333333}
+          NumGlyphs = 2
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 3
+        end
+      end
+      object StaticText2: TStaticText
+        Left = 54
+        Top = 37
+        Width = 147
+        Height = 20
+        Caption = 'letters && numbers only '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 24
+      end
+    end
+  end
+  object StaticText1: TStaticText
+    Left = 208
+    Top = 575
+    Width = 115
+    Height = 28
+    Caption = 'Selected bird'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+  end
+  object name_view: TEdit
+    Left = 328
+    Top = 575
+    Width = 145
+    Height = 28
+    Color = clYellow
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object OKBtn: TButton
+    Left = 487
+    Top = 580
+    Width = 75
+    Height = 25
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 3
+    OnClick = OKBtnClick
+  end
+  object CancelBtn: TButton
+    Left = 575
+    Top = 580
+    Width = 75
+    Height = 25
+    Cancel = True
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 4
+  end
+  object DataSource1: TDataSource
+    DataSet = birds
+    Left = 904
+    Top = 248
+  end
+  object birds: TMyTable
+    TableName = 'animals'
+    Connection = Form1.MyConnection1
+    FetchRows = 1000
+    Left = 824
+    Top = 192
+  end
+  object MyQuery1: TMyQuery
+    Connection = Form1.MyConnection1
+    Left = 836
+    Top = 295
+  end
+end

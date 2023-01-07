@@ -1,0 +1,165 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "animals.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma link "CRGrid"
+#pragma link "DBAccess"
+#pragma link "MemDS"
+#pragma link "MyAccess"
+#pragma link "NumLab"
+#pragma resource "*.dfm"
+Tanimals_form *animals_form;
+//---------------------------------------------------------------------------
+__fastcall Tanimals_form::Tanimals_form(TComponent* Owner)
+        : TForm(Owner)
+{
+ new_bird=false;
+ birds->Active=true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tanimals_form::animals_gridCellClick(TColumn *Column)
+{
+  OKBtn->Enabled=true;
+  bird_update();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tanimals_form::animals_gridDrawColumnCell(TObject *Sender,
+      const TRect &Rect, int DataCol, TColumn *Column,
+      TGridDrawState State)
+{
+  bird_update();        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tanimals_form::animals_gridTitleClick(TColumn *Column)
+{
+   messages->Caption="Click field name above to sort, then search (case sensitive). To filter click 'enter', then 'Apply filter'.";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tanimals_form::filterClick(TObject *Sender)
+{
+  allow_update=false;
+  animals_grid->ApplyFilter();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tanimals_form::clear_filtersClick(TObject *Sender)
+{
+  animals_grid->ClearFilters();
+   animals_grid->ClearSorting();
+   animals_grid->ApplyFilter();
+}
+//---------------------------------------------------------------------------
+
+void Tanimals_form::bird_update()
+{
+        hatched->Date=birds->FieldByName("hatched")->AsDateTime;
+        age->Value=(int)Date()-(int)hatched->Date;
+       // age_lb->Value=age->Value;
+        procedure1->Text=birds->FieldByName("procedure1")->AsString;
+        procedure1_schedule->Date=birds->FieldByName("proc1_date")->AsDateTime;
+        procedure1_age->Value=procedure1_schedule->Date-hatched->Date;
+        procedure1_time->Time=birds->FieldByName("proc1_date")->AsDateTime;
+        if(procedure1_age->Value<0)procedure1_age->Value=0;
+
+        procedure2->Text=birds->FieldByName("procedure2")->AsString;
+        procedure2_schedule->Date=birds->FieldByName("proc2_date")->AsDateTime;
+        procedure2_time->Time=birds->FieldByName("proc2_date")->AsDateTime;
+        procedure2_age->Value=procedure2_schedule->Date-hatched->Date;
+        if(procedure2_age->Value<0)procedure2_age->Value=0;
+
+        trained->Date=birds->FieldByName("training")->AsDateTime;
+        train_time->Time=birds->FieldByName("training")->AsDateTime;
+        training->Text=(int)(trained->Date-hatched->Date);
+        if(training->Text.ToIntDef(0)<0)training->Text=0;
+
+        audio->Text=birds->FieldByName("audio")->AsString;
+        attributes->Text=birds->FieldByName("attributes")->AsString;
+        photoperiod->Text=birds->FieldByName("photoperiod")->AsString;
+
+        name->Text=birds->FieldByName("bird_name")->AsString;
+        name_view->Text=name->Text;
+        str=birds->FieldByName("sex")->AsString;//FieldValues["gender"];
+        if(str=="M")gender->ItemIndex=0; else gender->ItemIndex=1;
+        weight->Text=birds->FieldByName("weight")->AsString;;
+        cage->Text=birds->FieldByName("location")->AsString;
+        song->Text=birds->FieldByName("model")->AsString;
+        song_quota->Text=birds->FieldByName("quota")->AsString;
+        bird_comments->Text=birds->FieldByName("details")->AsString;
+}
+void __fastcall Tanimals_form::set_time1Click(TObject *Sender)
+{
+  hatched->Date=Date();
+  age->Value=0;        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tanimals_form::hatchedClick(TObject *Sender)
+{
+   age->Value=(int)Date()-(int)hatched->Date;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tanimals_form::trainingChange(TObject *Sender)
+{
+  int train_age=training->Text.ToIntDef(0);
+  trained->Date=hatched->Date+train_age;        
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall Tanimals_form::nameChange(TObject *Sender)
+{
+  name_view->Text=name->Text;
+}
+//---------------------------------------------------------------------------
+
+      
+
+void Tanimals_form::Insert_bird_record()
+{
+   AnsiString a1=name->Text;
+   AnsiString a2, a3, a4, a5, a6,a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19;
+   str="SELECT COUNT(*) FROM animals where bird_name='"; str+=a1; str+="';";
+   MyQuery1->SQL->Clear();
+   MyQuery1->SQL->Add(str);
+   MyQuery1->Execute();
+   int recNum=MyQuery1->Fields->Fields[0]->AsInteger;
+   if(recNum)return;
+   if(gender->Text=="male")a2="M"; else a2="F";
+   a3=DateToStr(hatched->Date);
+   a4=weight->Text;
+   a5=cage->Text;
+   a6=procedure1->Text;
+   a7= DateToStr(procedure1_schedule->Date);
+   a8=procedure2->Text;
+   a9= DateToStr(procedure2_schedule->Date);
+   a10="";
+   a11="";
+   a12=DateToStr(trained->Date);
+   a14=song->Text;
+   a15=song_quota->Text;
+   a16=bird_comments->Text;
+   a17=audio->Text;
+   a18=attributes->Text;
+   a19=photoperiod->Text;
+   birds->AppendRecord(ARRAYOFCONST((a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a14, a15, a17, a18, a19, a16)));
+   Beep(); 
+}
+   
+
+
+void __fastcall Tanimals_form::OKBtnClick(TObject *Sender)
+{
+  if(datapages->ActivePageIndex)new_bird=true;        
+}
+//---------------------------------------------------------------------------
+

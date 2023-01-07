@@ -1,0 +1,26 @@
+//---------------------------------------------------------------------------
+
+#include "vcl.h"
+#pragma hdrstop
+USEFORM("david.cpp", Form1);
+USEFORM("table_dialog.cpp", tableDialog);
+USEFORM("animals.cpp", animals_form);
+//---------------------------------------------------------------------------
+WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+{
+        try
+        {
+                 Application->Initialize();
+                 Application->HelpFile = "C:\\Program Files\\Sound Analysis Pro\\SAP_HELP.HLP";
+                 Application->CreateForm(__classid(TForm1), &Form1);
+		Application->CreateForm(__classid(TtableDialog), &tableDialog);
+		Application->CreateForm(__classid(Tanimals_form), &animals_form);
+		Application->Run();
+        }
+        catch (Exception &exception)
+        {
+                 Application->ShowException(&exception);
+        }
+        return 0;
+}
+//---------------------------------------------------------------------------

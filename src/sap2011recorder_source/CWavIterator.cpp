@@ -1,0 +1,310 @@
+// CWavIterator.cpp: implementation of the CWavIterator class.
+//
+//////////////////////////////////////////////////////////////////////
+#ifndef _MSC_VER 
+#include <windows.h>
+#else
+#include "stdafx.h"
+#endif 
+
+#include <process.h>
+#include <stdio.h>
+#include <conio.h>
+#include "CWavIterator.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CWavIterator::CWavIterator()
+{
+	m_hWaveFile		= NULL;
+	m_pRawSamples	= NULL;
+	m_nBufferSize	= 4096;// read in up to 4024 samples of data at a time about 8k's worth)
+	m_pRawSamples	= new short[m_nBufferSize+1];
+	m_nCurBufSamples = 0;
+	m_nSamplesRead = 0;
+}
+CWavIterator::CWavIterator(char* pszFile)
+{
+	m_hWaveFile		= NULL;
+	m_pRawSamples	= NULL;
+	m_nBufferSize	= 4096;// read in up to 4024 samples of data at a time about 8k's worth)
+	m_pRawSamples	= new short[m_nBufferSize+1];
+	m_nCurBufSamples = 0;
+	m_nSamplesRead = 0;
+
+	OpenFile(pszFile);
+}
+CWavIterator::~CWavIterator()
+{
+	ResetContents();
+
+	if(m_pRawSamples != NULL)
+		delete [] m_pRawSamples;
+	m_pRawSamples = NULL;
+}
+void CWavIterator::ResetContents()
+{
+	// close the file (if its opened)
+	if(m_hWaveFile != NULL)
+	{
+		CloseHandle(m_hWaveFile);
+		m_hWaveFile = NULL;
+	}
+	// clear internal buffer
+	memset(m_pRawSamples,0,m_nBufferSize*2);
+	m_pCurBufferPos = m_pRawSamples;// in the beginning - there was darkness
+	m_nCurBufSamples = 0;
+	m_nSamplesRead = 0;
+}
+int CWavIterator::OpenFile(char* pszFile)
+{
+	BOOL bSuccess = FALSE;
+
+	ResetContents();
+
+	// ok try and open the file before we do anything else....
+	if(pszFile == NULL)
+		return s_ERROR;
+
+	m_hWaveFile = CreateFile(pszFile,					
+							GENERIC_READ,                 // open for reading 
+							0,                            // do not share 
+							NULL,                         // no security 
+							OPEN_EXISTING,                // existing file only 
+							FILE_ATTRIBUTE_NORMAL,        // normal file 
+							NULL);                        // no attr. template 
+
+	// if it did not open we can not do anything
+	if(m_hWaveFile == INVALID_HANDLE_VALUE)
+	{
+		m_hWaveFile = NULL;
+		return s_ERROR;
+	}
+
+	// first read the RIFF header...
+	if(ReadRiffHeader())
+	{
+		// ok the riff was read ok...
+		// now we can read in the format header
+		if(ReadFormatHeader())
+		{			
+			// ok last but not least...
+			if(ReadDataHeader())
+			{
+				// ok we are good to go...				
+				bSuccess = TRUE;
+			}
+		}
+	}
+
+	if(!bSuccess)
+	{
+		ResetContents();
+		return s_ERROR;
+	}
+
+	// set the end pointers...
+	m_lDataStart = SetFilePointer (m_hWaveFile,0, NULL, FILE_CURRENT);	
+	m_lDataEnd   = SetFilePointer(m_hWaveFile,0,NULL,FILE_END);
+
+	m_lCurWavPos = m_lDataStart;
+
+	// we are done..
+	return s_OK;
+}
+inline BOOL	CWavIterator::ReadRiffHeader()
+{
+	DWORD dwRead = 0;
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.chkRiff,8,&dwRead,NULL))
+		return FALSE;
+
+	return m_WaveHeader.chkRiff.ckid == ztFOURCC_RIFF;
+}
+inline BOOL CWavIterator::ReadDataHeader()
+{
+	DWORD dwRead = 0;
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.chkData,8,&dwRead,NULL))
+		return FALSE;
+
+	return m_WaveHeader.chkData.ckid == ztFOURCC_DATA;
+}
+inline BOOL CWavIterator::ReadFormatHeader()
+{
+	DWORD dwRead = 0;
+	// now we are looking for a fourcc WAVE 
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.fccWave,4,&dwRead,NULL))
+		return FALSE;
+
+	// make sure its what we expected..
+	if(m_WaveHeader.fccWave != ztFOURCC_WAVE)
+		return FALSE;
+
+	// now we can read in the format header
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.chkFmt,8,&dwRead,NULL))
+		return FALSE;	
+
+	// we need to know the position so we can offset (at the end)
+	DWORD dwEndOfFmt =SetFilePointer(m_hWaveFile,0,NULL,FILE_CURRENT);	
+	dwEndOfFmt+= m_WaveHeader.chkFmt.dwSize;
+
+	// make sure its what we expect
+	if(m_WaveHeader.chkFmt.ckid != ztFOURCC_FMT)
+		return FALSE;
+
+	// read format tag...
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.wFormatTag,2,&dwRead,NULL))
+		return FALSE;	
+
+	// if the format is not 1 then we do not support it (1 = PCM)
+	if(m_WaveHeader.wFormatTag != 1)
+		return FALSE;
+
+	// channels
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.nChannels,2,&dwRead,NULL))
+		return FALSE;	
+
+	// nSamplesPerSec
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.nSamplesPerSec,4,&dwRead,NULL))
+		return FALSE;	
+
+	// nAvgBytesPerSec
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.nAvgBytesPerSec,4,&dwRead,NULL))
+		return FALSE;	
+
+	// Block Alignment
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.nBlockAlign,2,&dwRead,NULL))
+		return FALSE;	
+
+	// Bits Per Sample
+	if(!ReadFile(m_hWaveFile,&m_WaveHeader.wBitsPerSample,2,&dwRead,NULL))
+		return FALSE;	
+
+	// ok we should be ok as long as we can move to the data chunk...
+	return (SetFilePointer (m_hWaveFile,dwEndOfFmt, NULL, FILE_BEGIN) != INVALID_SET_FILE_POINTER);
+}
+inline int CWavIterator::FillBuffer(LONG& pos)
+{
+	// reset cur buffer position
+	m_pCurBufferPos = m_pRawSamples;// in the beginning - there was darkness
+	m_nSamplesRead = 0;
+
+	// Fill the buffer starting at m_lCurWavPos and reading up to m_nBufferSize 
+	// into our buffer.. Reset the internal pointer while we are at it...
+	if(m_hWaveFile == NULL)
+	{
+		pos = END_POS;
+		return s_ERROR;// this is bad
+	}
+
+	pos = m_lCurWavPos;
+	DWORD dwTmp = SetFilePointer (m_hWaveFile,m_lCurWavPos, NULL, FILE_BEGIN);
+	if(dwTmp == INVALID_SET_FILE_POINTER)
+		return s_ERROR;// this is bad
+
+	// ok now we need to read..
+	if(!ReadFile(m_hWaveFile,m_pRawSamples,m_nBufferSize*2,&dwTmp,NULL))
+	{
+		pos = END_POS;
+
+		return s_ERROR;// this is bad
+	}
+
+	// how many samples of data do we have?
+	if(dwTmp != 0)
+		m_nCurBufSamples = int(dwTmp/2.0f);		
+	else
+	{
+		m_nCurBufSamples = 0;
+		pos = END_POS;
+	}
+
+
+	// Update the current file position....
+	m_lCurWavPos= SetFilePointer (m_hWaveFile,0, NULL, FILE_CURRENT);
+
+	return s_OK;
+}
+int	CWavIterator::GetTotalSamples()
+{
+	if(m_hWaveFile == NULL)
+		return -1;
+
+	int nBytes = (m_lDataEnd-m_lDataStart);
+	return int(nBytes/2.0f);
+}
+LONG CWavIterator::MoveToHeadPosition()
+{
+	LONG lPos = 0;
+	m_lCurWavPos = m_lDataStart;
+	FillBuffer(lPos);
+	return lPos;
+}
+inline void CWavIterator::AdvancePosition(LONG& pos)
+{
+	if(pos == END_POS)
+		return;
+
+	// We need to increase the buffer counter...
+	pos++;
+	m_pCurBufferPos++;
+	m_nSamplesRead++;
+	
+	// Advance is only called after the current sample has been
+	// read... If the current sample is the last in the file we need
+	// to set pos to END_POS
+	if((m_nSamplesRead == m_nCurBufSamples) &&
+		m_lDataEnd == m_lCurWavPos)
+	{
+		// We are Done
+		pos = END_POS;
+		return;
+	}
+
+	// If we have read all the data - lets try and get some more..
+	if(m_nSamplesRead > m_nCurBufSamples)
+	{		
+		// filler up
+		// The m_lCurWavPos has to be incremented (2) bytes to read the correct
+		// next set of samples (unless its at the beginning)
+		if(m_lCurWavPos != m_lDataStart)
+			m_lCurWavPos +=2;
+
+		FillBuffer(pos);
+	}
+}
+float CWavIterator::GetNextFloat(LONG& pos)
+{
+	// get current (should be valid)
+	float fReturn = float(*m_pCurBufferPos);
+	// move forward
+	AdvancePosition(pos);
+	// if pos = END_POS then fReturn is the last
+	// valid sample....
+	return fReturn;
+}
+short CWavIterator::GetNextShort(LONG& pos)
+{
+	// get current (should be valid)
+	short nReturn = *m_pCurBufferPos;
+	// move forward
+	AdvancePosition(pos);
+	// if pos = END_POS then nReturn will be the last
+	// valid sample....
+	return nReturn;
+}
+
+void CWavIterator::Back(LONG& pos, int iterate)
+{
+
+        for(int i=0;i<iterate;i++) RetractPosition(pos);
+
+}
+
+inline void CWavIterator::RetractPosition(LONG& pos)
+{
+   	pos--;
+	m_pCurBufferPos--;
+	m_nSamplesRead--;           
+}

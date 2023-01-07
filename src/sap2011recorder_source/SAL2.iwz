@@ -1,0 +1,303 @@
+
+[InstallShield Wizard]
+iDate=0
+iTime=0
+Flag=0
+ISX.EXE Size=679936
+ISX.EXE Date=12:21:52AM  4/8/1999
+ISX.EXE Ver=2.1.2.62
+SETUP.EXE Size=45312
+SETUP.EXE Date=10:12:24AM  3/23/1999
+SETUP.EXE Ver=3.0.111.0
+SETUP.INS Size=81342
+SETUP.INS Date=12:26:40AM  4/8/1999
+SETUP.INS Ver=Not available
+_INST16.EX_ Size=81342
+_INST16.EX_ Date=12:26:40AM  4/8/1999
+_INST16.EX_ Ver=Not available
+_INST32I.EX_ Size=294079
+_INST32I.EX_ Date=10:12:22AM  3/23/1999
+_INST32I.EX_ Ver=Not available
+ISDEPEND.INI Size=6857
+ISDEPEND.INI Date=2:24:36PM  12/27/1999
+ISDEPEND.INI Ver=Not available
+SWDEPEND.INI Size=9711
+SWDEPEND.INI Date=2:24:40PM  12/27/1999
+SWDEPEND.INI Ver=Not available
+ICOMP.EXE Size=119808
+ICOMP.EXE Date=10:12:24AM  3/23/1999
+ICOMP.EXE Ver=3.00.062
+SPLIT.EXE Size=90624
+SPLIT.EXE Date=10:12:24AM  3/23/1999
+SPLIT.EXE Ver=3.00.060
+PACKLIST.EXE Size=87552
+PACKLIST.EXE Date=10:12:24AM  3/23/1999
+PACKLIST.EXE Ver=3.00.060
+Version=2.12
+DevTool=Borland C++Builder 5
+Platform=Win32
+DisksBuilt=1
+DisksDir=SAL2\650MB\
+TabsVisit=11111111100001111111
+LangNum=0
+LangDir=
+
+[VisualDesign]
+AppName=SAL2
+AppExe=[Program Files]\SAL229.exe
+AppExeFile=C:\C++ projects\SAL2\SAL229.exe
+Version=1.0
+Company=CCNY
+Title=SAL2.29
+TitleType=1
+BackgrndBmp=
+BackgrndAlign=4
+Backgrnd=1
+BackgrndColor=10
+Uninstall=1
+UninstallChecked=1
+Silent=1
+SmsMode=0
+
+[Types]
+Types=1
+Type1Components=1
+Type1Name=Complete
+Type1ComponentList=1 
+
+[Components]
+Components=1
+Component1Groups=6
+Component1Name=Application Files
+Component1Description=Application files needed to run the application
+Component1GroupList=1 2 3 4 5 6 
+
+[Groups]
+Groups=6
+Group1Size=1428992
+Group1Files=1
+Group1Name=Program Files
+Group1Dir=<INSTALLDIR>
+Group1Update=0
+Group1TargetOS=-1
+Group1File1=C:\C++ projects\SAL2\SAL229.exe
+Group2Size=104448
+Group2Files=7
+Group2Name=database
+Group2Dir=c:\database
+Group2Update=0
+Group2TargetOS=16
+Group2File1=C:\DataBase\Records1.db
+Group2File2=C:\DataBase\Records4.db
+Group2File3=C:\DataBase\Records3.db
+Group2File4=C:\DataBase\Records2.db
+Group2File5=C:\DataBase\Key pecks.DB
+Group2File6=C:\DataBase\Current.DB
+Group2File7=C:\DataBase\NIDAQ.db
+Group3Size=112617
+Group3Files=2
+Group3Name=root
+Group3Dir=c:\
+Group3Update=0
+Group3TargetOS=-1
+Group3File1=C:\ztBirdControlPack.ocx
+Group3File1Reg=1
+Group3File2=C:\Sound Analysis.ini
+Group3Reg=1
+Group4Size=7808738
+Group4Files=28
+Group4Auto=101
+Group4ID=39001
+Group4Name=BDE/IDAPI Files
+Group4Dir=<ProgramFilesDir>\Common Files\Borland Shared\BDE
+Group4Update=-1
+Group4TargetOS=-1
+Group4File1=C:\Program Files\Common Files\Borland Shared\BDE\IDAPI32.DLL
+Group4File1Auto=101
+Group4File2=C:\Program Files\Common Files\Borland Shared\BDE\IDR20009.DLL
+Group4File2Auto=101
+Group4File3=C:\Program Files\Common Files\Borland Shared\BDE\BLW32.DLL
+Group4File3Auto=101
+Group4File4=C:\Program Files\Common Files\Borland Shared\BDE\BDEADMIN.EXE
+Group4File4Auto=101
+Group4File5=C:\Program Files\Common Files\Borland Shared\BDE\BDEADMIN.HLP
+Group4File5Auto=101
+Group4File6=C:\Program Files\Common Files\Borland Shared\BDE\BDEADMIN.CNT
+Group4File6Auto=101
+Group4File7=C:\Program Files\Common Files\Borland Shared\BDE\BDEADMIN.TOC
+Group4File7Auto=101
+Group4File8=C:\Program Files\Common Files\Borland Shared\BDE\DATAPUMP.HLP
+Group4File8Auto=101
+Group4File9=C:\Program Files\Common Files\Borland Shared\BDE\DATAPUMP.CNT
+Group4File9Auto=101
+Group4File10=C:\Program Files\Common Files\Borland Shared\BDE\IDDR32.DLL
+Group4File10Auto=101
+Group4File11=C:\Program Files\Common Files\Borland Shared\BDE\IDPDX32.DLL
+Group4File11Auto=101
+Group4File12=C:\Program Files\Common Files\Borland Shared\BDE\IDSQL32.DLL
+Group4File12Auto=101
+Group4File13=C:\Program Files\Common Files\Borland Shared\BDE\IDBAT32.DLL
+Group4File13Auto=101
+Group4File14=C:\Program Files\Common Files\Borland Shared\BDE\IDQBE32.DLL
+Group4File14Auto=101
+Group4File15=C:\Program Files\Common Files\Borland Shared\BDE\IDDBAS32.DLL
+Group4File15Auto=101
+Group4File16=C:\Program Files\Common Files\Borland Shared\BDE\IDASCI32.DLL
+Group4File16Auto=101
+Group4File17=C:\Program Files\Common Files\Borland Shared\BDE\IDODBC32.DLL
+Group4File17Auto=101
+Group4File18=C:\Program Files\Common Files\Borland Shared\BDE\IDDAO32.DLL
+Group4File18Auto=101
+Group4File19=C:\Program Files\Common Files\Borland Shared\BDE\IDDA3532.DLL
+Group4File19Auto=101
+Group4File20=C:\Program Files\InstallShield\InstallShield Express for C++Builder 5\redist\IDAPINST.DLL
+Group4File20Auto=101
+Group4File21=C:\Program Files\Common Files\Borland Shared\BDE\BANTAM.DLL
+Group4File21Auto=101
+Group4File22=C:\Program Files\Common Files\Borland Shared\BDE\USA.BTL
+Group4File22Auto=101
+Group4File23=C:\Program Files\Common Files\Borland Shared\BDE\EUROPE.BTL
+Group4File23Auto=101
+Group4File24=C:\Program Files\Common Files\Borland Shared\BDE\CEEUROPE.BTL
+Group4File24Auto=101
+Group4File25=C:\Program Files\Common Files\Borland Shared\BDE\JAPAN.BTL
+Group4File25Auto=101
+Group4File26=C:\Program Files\Common Files\Borland Shared\BDE\OTHER.BTL
+Group4File26Auto=101
+Group4File27=C:\Program Files\Common Files\Borland Shared\BDE\FAREAST.BTL
+Group4File27Auto=101
+Group4File28=C:\Program Files\Common Files\Borland Shared\BDE\CHARSET.CVB
+Group4File28Auto=101
+Group5Size=6080
+Group5Files=1
+Group5Auto=98
+Group5ID=38998
+Group5Name=BDE/IDAPI CNF File
+Group5Dir=<ProgramFilesDir>\Common Files\Borland Shared\BDE
+Group5Update=-1
+Group5TargetOS=-1
+Group5File1=C:\Program Files\InstallShield\InstallShield Express for C++Builder 5\redist\IDAPI.CNF
+Group5File1Auto=98
+Group6Size=1041920
+Group6Files=3
+Group6Auto=58
+Group6ID=38958
+Group6Name=System Files - WinSysDir
+Group6Dir=<WINSYSDIR>
+Group6Update=-1
+Group6TargetOS=-1
+Group6File1=C:\WINDOWS\System32\BDEADMIN.CPL
+Group6File1Auto=58
+Group6File2=C:\WINDOWS\System32\VCLBDE50.BPL
+Group6File2Auto=58
+Group6File3=C:\WINDOWS\System32\VCLDB50.BPL
+Group6File3Auto=58
+
+[Sequence]
+DestinationLocationDir=<ProgramFilesDir>\Sound Analysis Live
+DatabaseLocationDir=<INSTALLDIR>\data
+SelectProgramFolderName=SAL2
+WelcomeMessage=1
+WelcomeMessageFile=
+UserInformation=1
+DestinationLocation=1
+SelectProgramFolder=1
+BeginFileTransfer=1
+ProgressBar=1
+Billboards=1
+BillboardsFile=C:\PROGRA~1\INSTAL~2\INSTAL~1\Redist\
+SetupComplete=1
+SetupCompleteExec=[Program Files]\SAL211a.exe
+SetupCompleteExecParam=
+SetupCompleteExecReadme=
+
+[RegEntries]
+Reg1Path=HKEY_CLASSES_ROOT
+Reg1Val1Type=0
+Reg1Val1Name=(Default)
+Reg1Val1Data=(value not set)
+Reg1Vals=1
+Reg2Path=HKEY_CURRENT_USER
+Reg2Val1Type=0
+Reg2Val1Name=(Default)
+Reg2Val1Data=(value not set)
+Reg2Vals=1
+Reg3Path=HKEY_LOCAL_MACHINE
+Reg3Val1Type=0
+Reg3Val1Name=(Default)
+Reg3Val1Data=(value not set)
+Reg3Vals=1
+Reg4Path=HKEY_USERS
+Reg4Val1Type=0
+Reg4Val1Name=(Default)
+Reg4Val1Data=(value not set)
+Reg4Vals=1
+Reg5Path=HKEY_CURRENT_CONFIG
+Reg5Val1Type=0
+Reg5Val1Name=(Default)
+Reg5Val1Data=(value not set)
+Reg5Vals=1
+Reg6Path=HKEY_DYN_DATA
+Reg6Val1Type=0
+Reg6Val1Name=(Default)
+Reg6Val1Data=(value not set)
+Reg6Vals=1
+Regs=6
+
+[Registry]
+
+[Icons]
+Icons=1
+Icon1Param=
+Icon1Cmd=[Program Files]\SAL229.exe
+Icon1Description=SAL229
+Icon1WorkingDir=[Program Files]
+Icon1IconFile=
+Icon1RealFile=C:\C++ projects\SAL2\SAL221.exe
+Icon1WhichIcon=0
+Icon1KeyVirtual=0
+Icon1KeyFlags=0
+Icon1StartMenu=0
+Icon1Window=0
+
+[IDAPI Alias]
+Alias1=DefaultDD
+Alias1Path=c:\database
+Alias1Type=PARADOX
+Aliases=1
+SaveCfg=0
+
+[IDAPI Alias DefaultDD]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[Autoexec]
+PathDir=
+ShareLocks=
+ShareFiles=
+Command=
+
+[CopyToFloppy]
+DriveOption=Path
+DestinationPath=c:\sal\sal229
+DestinationPathOneFile=
+Password=
+
+[ISObjectIDs]
+nTotal=2
+ID1=101
+ID2=58
+
+[Uninstall]
+UserUninstall=0

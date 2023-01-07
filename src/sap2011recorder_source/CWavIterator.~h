@@ -1,0 +1,122 @@
+// CWavIterator.h: interface for the CWavIterator class.
+/*
+	DWS:
+	Allows one to iterate a wav file like this:
+
+	CWavIterator wIterator("C:\\MyFile.wav");
+
+
+	LONG pos = wIterator.MoveToHeadPosition();
+	float fSample = 0.0f;
+
+	while(pos != CWavIterator::END_POS)
+	{
+		fSample = wIterator.GetNextFloat(pos);
+		// do something with the sample
+	}
+
+        This file is meant to be compiled under VC++ 6.0 Or
+        Borland CPP Builder 5.0
+*/
+//////////////////////////////////////////////////////////////////////
+
+#if !defined(AFX_CWAVITERATOR_H__7AB38DF6_8862_40D7_92D9_0718F53AB3F0__INCLUDED_)
+#define AFX_CWAVITERATOR_H__7AB38DF6_8862_40D7_92D9_0718F53AB3F0__INCLUDED_
+
+//////////////////////////////////////////////////////////////////////
+// Wav file structures
+//////////////////////////////////////////////////////////////////////
+#ifndef UINT16
+typedef unsigned short UINT16;
+#endif
+typedef UINT32 ztFOURCC;	// a four character code 
+
+typedef struct CHUNKHDR {
+  ztFOURCC ckid;		// chunk ID 
+  UINT32 dwSize; 	// chunk size 
+} CHUNKHDR;
+
+// MMIO macros 
+#define ztmmioFOURCC(ch0, ch1, ch2, ch3) \
+  ((UINT32)(BYTE)(ch0) | ((UINT32)(BYTE)(ch1) << 8) | \
+  ((UINT32)(BYTE)(ch2) << 16) | ((UINT32)(BYTE)(ch3) << 24))
+
+#define ztFOURCC_RIFF	ztmmioFOURCC ('R', 'I', 'F', 'F')
+#define ztFOURCC_WAVE	ztmmioFOURCC ('W', 'A', 'V', 'E')
+#define ztFOURCC_FMT	ztmmioFOURCC ('f', 'm', 't', ' ')
+#define ztFOURCC_DATA	ztmmioFOURCC ('d', 'a', 't', 'a')
+
+// simplified header for standard WAV files 
+typedef struct ztWAVEHDR 
+{
+  CHUNKHDR	chkRiff; //8 bytes
+  ztFOURCC	fccWave; // 4 bytes
+  CHUNKHDR	chkFmt;//8 bytes
+  UINT16	wFormatTag;	/* format type  2 bytes*/
+  UINT16	nChannels;	/* 2 bytes number of channels (i.e. mono, stereo, etc.) */
+  UINT32	nSamplesPerSec; /* 4 bytes sample rate */
+  UINT32	nAvgBytesPerSec;/* 4 bytes for buffer size estimation */
+  UINT16	nBlockAlign;	/* 2 bytes block size of data */
+  UINT16	wBitsPerSample;//2 bytes
+  CHUNKHDR	chkData;//8 bytes 
+} ztWAVEHDR;
+
+class CWavIterator  
+{
+public:
+	// Enums
+	//////////////////////////////////////////////////////////////////////
+	enum WIteratorEnums
+	{
+		s_OK = 0,			// status ok
+		s_ERROR = -1,		// status error
+		END_POS = -1971		// no more samples (EOL)
+	};
+
+	CWavIterator();
+	CWavIterator(char* pszFile);
+	virtual ~CWavIterator();
+
+	// Iteration Utils
+	//////////////////////////////////////////////////////////////////////
+	LONG				MoveToHeadPosition();
+	float				GetNextFloat(LONG& pos);
+	short				GetNextShort(LONG& pos);
+
+	// public utils
+	//////////////////////////////////////////////////////////////////////
+	int					GetTotalSamples();
+	void				ResetContents();// completely resets state	
+	int					OpenFile(char* pszFile);
+
+protected:
+
+	// Buffering utils
+	//////////////////////////////////////////////////////////////////////
+	int					FillBuffer(LONG& pos);
+	void				AdvancePosition(LONG& pos);
+
+	// next three functions Copied from wave splitter
+	//////////////////////////////////////////////////////////////////////
+	BOOL				ReadRiffHeader();
+	BOOL				ReadFormatHeader();
+	BOOL				ReadDataHeader();
+
+	// wave data
+	//////////////////////////////////////////////////////////////////////
+	HANDLE				m_hWaveFile;
+	int					m_nBufferSize;
+	short*				m_pRawSamples;
+	ztWAVEHDR			m_WaveHeader;
+	LONG				m_lDataStart;
+	LONG				m_lDataEnd;
+
+	// Internal buffering data
+	//////////////////////////////////////////////////////////////////////
+	short*				m_pCurBufferPos;
+	int					m_nCurBufSamples;
+	int					m_nSamplesRead;
+	LONG				m_lCurWavPos;// current pos in wav file
+};
+
+#endif // !defined(AFX_CWAVITERATOR_H__7AB38DF6_8862_40D7_92D9_0718F53AB3F0__INCLUDED_)

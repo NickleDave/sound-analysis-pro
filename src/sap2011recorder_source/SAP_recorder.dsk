@@ -1,0 +1,324 @@
+[Closed Files]
+File_0=SourceModule,'C:\C++ Projects\SAP recorder NI_backup\david.cpp',0,1,1,1,1,1,0
+File_1=SourceModule,'C:\SDLSUITE\GUIPACK\C5\SDL_NumLab.hpp',0,1,1,23,13,0,0
+File_2=SourceModule,'C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI\david.cpp',0,1,2593,46,2607,1,0
+File_3=SourceModule,'C:\PROGRAM FILES\BORLAND\CBUILDER5\INCLUDE\VCL\CSPIN.h',0,1,91,28,101,0,0
+File_4=SourceModule,'c:\program files\borland\cbuilder5\Imports\ZTBIRDCONTROLPACKLib_TLB.h',0,1,332,1,337,0,0
+File_5=SourceModule,'c:\program files\borland\cbuilder5\Imports\ZTBIRDCONTROLPACKLib_TLB.cpp',0,1,1,1,1,0,0
+File_6=SourceModule,'C:\SDLSUITE\GUIPACK\C5\SDL_ProgBar.hpp',0,1,1,24,12,0,0
+File_7=SourceModule,'C:\SDLSuite\D2006\SDL_sdlbase.hpp',0,1,1,17,7,0,0
+File_8=SourceModule,'C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\CWavIterator.cpp',0,1,115,1,1,0,0
+File_9=SourceModule,'C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI\CZT_BirdFramework.h',0,1,808,75,421,0,0
+
+[Modules]
+Module0=C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\animals.cpp
+Module1=C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\table_dialog.cpp
+Module2=C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\david.cpp
+Count=3
+EditWindowCount=1
+
+[C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\animals.cpp]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\table_dialog.cpp]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\david.cpp]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Program Files (x86)\Borland\CBuilder5\Projects\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\SAP_recorder.bpr]
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+ViewCount=3
+CurrentView=1
+View0=0
+View1=1
+View2=2
+CodeExplorer=CodeExplorer@EditWindow0
+MessageView=MessageView@EditWindow0
+ClassHierarchy=ClassHierarchy@EditWindow0
+Create=1
+Visible=1
+State=0
+Left=10
+Top=140
+Width=1270
+Height=660
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1254
+ClientHeight=622
+LeftPanelSize=170
+LeftPanelClients=CodeExplorer@EditWindow0
+LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
+RightPanelSize=0
+BottomPanelSize=0
+BottomPanelClients=MessageView@EditWindow0
+BottomPanelData=00000400010000000B0000004D657373616765566965770000000000000000000000000000000000FFFFFFFF
+
+[View0]
+Module=C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\david.cpp
+CursorX=57
+CursorY=5
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\animals.cpp
+CursorX=116
+CursorY=7
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=C:\Users\Ofer\Documents\RAD Studio\Projects\SAP recorder NI_backup\table_dialog.cpp
+CursorX=54
+CursorY=7
+TopLine=1
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=18
+Breakpoint0='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder new\Recorder.cpp',1595,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint1='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder new\Recorder.cpp',1128,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint2='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder new\Recorder.cpp',1252,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint3='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder new\Recorder.cpp',1367,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint4='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder new\Recorder.cpp',1630,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint5='C:\Program Files\Borland\CBuilder5\Projects\SAP II NI\SongMeasures.cpp',905,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint6='C:\Program Files\Borland\CBuilder5\Projects\SAP II NI\SongMeasures.cpp',947,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint7='C:\Program Files\Borland\CBuilder5\Projects\SAP II NI\SongMeasures.cpp',1024,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint8='G:\segment.cpp',103,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint9='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',5354,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint10='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',5383,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint11='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',5382,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint12='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',1419,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint13='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',2306,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint14='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',2307,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint15='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',2308,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint16='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',1918,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint17='C:\Program Files\Borland\CBuilder5\Projects\SAP recorder NI_backup\david.cpp',1920,'',0,1,'',1,0,0,'',1,'','',''
+
+[AddressBreakpoints]
+Count=0
+
+[Main Window]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=1280
+Height=122
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1264
+ClientHeight=84
+
+[ProjectManager]
+Create=1
+Visible=1
+State=0
+Left=166
+Top=202
+Width=601
+Height=508
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=585
+ClientHeight=474
+TBDockHeight=305
+LRDockWidth=438
+Dockable=1
+
+[CPUWindow]
+Create=1
+Visible=0
+State=0
+Left=220
+Top=76
+Width=1060
+Height=724
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1044
+ClientHeight=686
+DumpPane=345
+DisassemblyPane=540
+RegisterPane=231
+FlagPane=290
+
+[WatchWindow]
+Create=1
+Visible=0
+State=0
+Left=1
+Top=449
+Width=790
+Height=151
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=774
+ClientHeight=117
+TBDockHeight=132
+LRDockWidth=799
+Dockable=1
+
+[CallStackWindow]
+Create=1
+Visible=0
+State=0
+Left=122
+Top=193
+Width=294
+Height=167
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=278
+ClientHeight=133
+TBDockHeight=161
+LRDockWidth=294
+Dockable=1
+
+[AlignmentPalette]
+Create=1
+Visible=0
+State=0
+Left=200
+Top=114
+Width=156
+Height=84
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=150
+ClientHeight=60
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=879
+Top=14
+Width=399
+Height=786
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=381
+ClientHeight=750
+TBDockHeight=494
+LRDockWidth=190
+Dockable=1
+SplitPos=148
+ArrangeBy=Name
+SelectedItem=Name
+ExpandedItems=BorderIcons,Brush,Font,Font.Style,PoolingOptions,Wave
+HiddenCategories=Legacy
+ShowStatusBar=1
+
+[BreakpointWindow]
+Create=1
+Visible=0
+State=0
+Left=292
+Top=293
+Width=453
+Height=197
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=437
+ClientHeight=163
+TBDockHeight=197
+LRDockWidth=453
+Dockable=1
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+Column4Width=75
+Column5Width=75
+
+[CodeguardLog]
+Create=1
+Visible=0
+State=0
+Left=191
+Top=108
+Width=448
+Height=190
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=432
+ClientHeight=156
+TBDockHeight=190
+LRDockWidth=448
+Dockable=1
+
+[ClassHierarchy@EditWindow0]
+Create=1
+Visible=0
+State=0
+Left=218
+Top=113
+Width=403
+Height=284
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=387
+ClientHeight=250
+TBDockHeight=284
+LRDockWidth=403
+Dockable=1
+TreeWidth=121
+Col1Width=120
+Col2Width=120
+
+[CodeExplorer@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=12
+Width=170
+Height=592
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=170
+ClientHeight=592
+TBDockHeight=388
+LRDockWidth=170
+Dockable=1
+ClassViewDisplayMode=0
+
+[MessageView@EditWindow0]
+Create=1
+Visible=0
+State=0
+Left=12
+Top=0
+Width=1242
+Height=194
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1242
+ClientHeight=194
+TBDockHeight=194
+LRDockWidth=443
+Dockable=1
+
+[DockHosts]
+DockHostCount=0
+

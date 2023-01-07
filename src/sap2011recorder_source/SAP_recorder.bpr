@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="SAP_recorder.exe"/>
+    <OBJFILES value="SAP_recorder.obj david.obj table_dialog.obj animals.obj"/>
+    <RESFILES value="SAP_recorder.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) david.dfm table_dialog.dfm animals.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="sdlguipack_rt_90C5.lib sdlbasepack_rt_90C5.lib sdlmathpack_rt_90C5.lib 
+      sdlbasepack_85C5.lib sdlmathpack_85C5.lib sdlguipack_85C5.lib 
+      crcontrols50.lib mmtools_c5.lib dclusr52.lib B5XLR4_R.lib Tee50.lib 
+      dclusr50.lib MYDAC50.lib VCLBDE50.lib DAC50.lib sdlcsuite60C5.lib 
+      VCLX50.lib bcbsmp50.lib Vcldb50.lib Vcl50.lib"/>
+    <SPARELIBS value="Vcl50.lib Vcldb50.lib bcbsmp50.lib VCLX50.lib sdlcsuite60C5.lib DAC50.lib 
+      VCLBDE50.lib MYDAC50.lib dclusr50.lib Tee50.lib B5XLR4_R.lib dclusr52.lib 
+      mmtools_c5.lib crcontrols50.lib sdlguipack_85C5.lib sdlmathpack_85C5.lib 
+      sdlbasepack_85C5.lib sdlmathpack_rt_90C5.lib sdlbasepack_rt_90C5.lib 
+      sdlguipack_rt_90C5.lib"/>
+    <PACKAGES value="Vcl50.bpi Vclx50.bpi bcbsmp50.bpi Vcldb50.bpi vclado50.bpi ibsmp50.bpi 
+      VCLBDE50.bpi vcldbx50.bpi Qrpt50.bpi TeeUI50.bpi TeeDB50.bpi Tee50.bpi 
+      Dss50.bpi TeeQR50.bpi VCLIB50.bpi Vclmid50.bpi vclie50.bpi Inetdb50.bpi 
+      Inet50.bpi NMFast50.bpi webmid50.bpi bcbie50.bpi dclocx50.bpi 
+      bcb2kaxserver50.bpi sdlcsuite60C5.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="tlink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="SAP_recorder.cpp"/>
+    <INCLUDEPATH value="C:\SDLSuite\guipack\C5\;E:\;&quot;C:\Documents and Settings\CCNY\My Documents\&quot;;..;..\fasterFFTnew;&quot;C:\AfalinaSoft\XL Report 4\b5units\&quot;;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;&quot;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\&quot;;&quot;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\&quot;;..\Lib;&quot;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Lib\&quot;"/>
+    <LIBPATH value="C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;&quot;C:\Documents and Settings\CCNY\My Documents\&quot;;..;..\fasterFFTnew;&quot;C:\AfalinaSoft\XL Report 4\b5units\&quot;;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\;..\Lib;&quot;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\&quot;;&quot;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Lib\&quot;;&quot;C:\C++ Projects\Lib\&quot;"/>
+    <WARNINGS value="-w-par"/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-IC:\SDLSuite\guipack\C5\. -IE:\. 
+      -I&quot;C:\Documents and Settings\CCNY\My Documents\.&quot; -I.. -I..\fasterFFTnew 
+      -I&quot;C:\AfalinaSoft\XL Report 4\b5units\.&quot; -I$(BCB)\Imports -I$(BCB)\include 
+      -I$(BCB)\include\vcl -IC:\MyDac\Include\. -IC:\MMTOOLS\. 
+      -IC:\SDLSuite\mathpack\C5\. -IC:\SDLSuite\basepack\C5\. 
+      -I&quot;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\.&quot; 
+      -I&quot;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\.&quot; -I..\Lib 
+      -I&quot;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Lib\.&quot; -src_suffix cpp 
+      -D_DEBUG -boa"/>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl50.csm -Hc -Vx -Ve -X- -r- -a8 -6 -b- -k -y -v -vi- 
+      -c -tW -tWM"/>
+    <PFLAGS value="-$Y+ -$W -$O- -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=16
+Item0=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\;..\Lib;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Lib\
+Item1=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\;..\Lib;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Lib
+Item2=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\;..\Lib
+Item3=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\;C:\C++ Projects\Lib
+Item4=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\
+Item5=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units
+Item6=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include\
+Item7=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Include
+Item8=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;C:\MyDac\Include\;C:\MMTOOLS\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5\
+Item9=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;..\..\MyDac\Include;..\..\MMTOOLS;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\basepack\C5
+Item10=C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;..\..\MyDac\Include;..\..\MMTOOLS;C:\SDLSuite\mathpack\C5\
+Item11=C:\SDLSuite\guipack\C5;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;..\..\MyDac\Include;..\..\MMTOOLS;C:\SDLSuite\mathpack\C5
+Item12=C:\SDLSuite\guipack\C5;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;..\..\MyDac\Include;..\..\MMTOOLS
+Item13=E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;..\..\MyDac\Include;..\..\MMTOOLS
+Item14=E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;..\..\MyDac\Include;C:\Program Files\Borland\CBuilder5\MMTOOLS
+Item15=E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\include;$(BCB)\include\vcl;..\..\MyDac\Include
+
+[HistoryLists\hlLibraryPath]
+Count=13
+Item0=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\;..\Lib;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Lib\;C:\C++ Projects\Lib
+Item1=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\;..\Lib;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Lib\
+Item2=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\;..\Lib;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\;C:\Program Files (x86)\Borland\CBuilder5\MyDac\Lib
+Item3=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\;..\Lib;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units\
+Item4=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\;..\Lib;C:\Program Files (x86)\AfalinaSoft\XL Report 4\B5units
+Item5=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\;..\Lib
+Item6=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\;C:\C++ Projects\Lib
+Item7=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;C:\AfalinaSoft\XL Report 4\b5units\;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\MyDac\Lib\;C:\MMTOOL\
+Item8=C:\SDLSuite\basepack\C5\;C:\SDLSuite\mathpack\C5\;C:\SDLSuite\guipack\C5\;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\MyDac\Lib;..\..\MMTOOL
+Item9=C:\SDLSuite\basepack\C5;C:\SDLSuite\mathpack\C5;C:\SDLSuite\guipack\C5;E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\MyDac\Lib;..\..\MMTOOL
+Item10=E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\MyDac\Lib;..\..\MMTOOL
+Item11=E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\MyDac\Lib;C:\Program Files\Borland\CBuilder5\MMTOOL
+Item12=E:\;C:\Documents and Settings\CCNY\My Documents\;..;..\fasterFFTnew;..\..\..\..\AfalinaSoft\XL Report 4\b5units;$(BCB)\Imports;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\MyDac\Lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>
